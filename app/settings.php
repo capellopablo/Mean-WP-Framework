@@ -25,18 +25,26 @@ add_action('init', function () {
 $fields['global_settings'] = new FieldsBuilder('global_settings');
 $fields['global_settings']
     ->addTab('header', ['placement' => 'left'])
-    ->addImage('logo', [
-        'preview_size' => 'medium',
-        'wrapper'       => [
-            'width' => '75%',
-        ],
-    ])
+        ->addImage('logo', [
+            'preview_size' => 'medium',
+            'wrapper'       => [
+                'width' => '75%',
+            ],
+        ])
 
+    ->addTab('mean_framework', ['placement' => 'left'])
+        ->addTrueFalse('enable_shortcodes',[
+            'ui' => 1,
+        ])
+    ->addTab('assets', ['placement' => 'left'])
+        ->addTrueFalse('enqueue_utility_css',[
+            'ui' => 1,
+        ])
     ->addTab('modules', ['placement' => 'left'])
-    ->addRelationship('mean_modules',[
-        'post_type' => 'et_pb_layout',
-        'filters' => [],
-    ])
+        ->addRelationship('mean_modules',[
+            'post_type' => 'et_pb_layout',
+            'filters' => [],
+        ])
 
     ->setLocation( 'options_page', '==', 'mean-settings' );
 

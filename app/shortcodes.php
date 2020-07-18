@@ -13,5 +13,6 @@ add_shortcode( 'mean_modules', function (){
             echo do_shortcode($module->post_content);
         }
     }
+
     return ob_get_clean();
 });
